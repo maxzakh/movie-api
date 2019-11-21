@@ -3,7 +3,7 @@ const fs = require("fs");
 const http = require("http");
 
 http.createServer((Request, Response) => {
-    let addr = request.url;
+    let addr = Request.url;
     let q = url.parse(addr, true);
     let filepath = "";
 
