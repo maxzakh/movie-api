@@ -5,11 +5,32 @@ const app = express();
 
 app.use(morgan('common'));
 
-app.get('/', function (req, res) {
-  res.send('Welcome to my app!');
+let topBooks = [ {
+    title : 'Harry Potter and the Sorcerer\'s Stone',
+    author : 'J.K. Rowling'
+},
+{
+    title : 'Lord of the Rings',
+    author : 'J.R.R. Tolkien'
+},
+{
+    title : 'Twilight',
+    author : 'Stephanie Meyer'
+}
+]
+
+// GET requests
+app.get('/', function(req, res) {
+  res.send('Welcome to my book club!')
 });
-app.get('/secreturl', function (req, res) {
-  res.send('This is a secret url with super top-secret content.');
+app.get('/documentation', function(req, res) {                  
+  res.sendFile('public/documentation.html', { root : __dirname });
+});
+app.get('/books', function(req, res) {
+  res.json(topBooks)
 });
 
-app.listen(8080);
+
+// listen for requests
+app.listen(8080, () =>
+  console.log('Your app is listening on port 8080.')
