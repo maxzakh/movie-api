@@ -1,37 +1,74 @@
-const express = require('express'),
-  morgan = require('morgan');
+const express = require("express"),
+    morgan = require("morgan"),
+    bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(morgan('common'));
+app.use(morgan("common"));
+app.use(bodyParser.json());
 
-let topBooks = [ {
-    title : 'Harry Potter and the Sorcerer\'s Stone',
-    author : 'J.K. Rowling'
-},
-{
-    title : 'Lord of the Rings',
-    author : 'J.R.R. Tolkien'
-},
-{
-    title : 'Twilight',
-    author : 'Stephanie Meyer'
-}
-]
+let Movies = [
+    {
+        title: "Office Space",
+        director: "Mike Judge"
+    },
+    {
+        title: "Old School",
+        director: "Todd Phillips"
+    },
+    {
+        title: "Young Frankenstein",
+        director: "Mel Brooks"
+    }
+];
 
 // GET requests
-app.get('/', function(req, res) {
-  res.send('Welcome to my book club!')
+app.get("/", function (req, res) {
+    res.send("Here are some of my favorite movies!")
 });
-app.get('/documentation', function(req, res) {                  
-  res.sendFile('public/documentation.html', { root : __dirname });
+app.get("/documentation", function (req, res) {
+    res.sendFile("public/documentation.html", { root: __dirname });
 });
-app.get('/books', function(req, res) {
-  res.json(topBooks)
+app.get("/movies", function (req, res) {
+    res.json(Movies)
+});
+app.get("/movies/:title", (req, res) => {
+  res.json(Movies.find((movie) => {
+      return movie.title === req.params.title
+  }));
+});
+// app.get("/users", (req, res) => {
+//   res.send(“Successful GET request returning data on all the users”);
+//  });
+
+// POST requests
+app.post("/movies", (req, res) => {
+  let newMovie = req.body;
+
+  if (!newMovie.title) {
+      const message = "Missing title in request body";
+      res.status(400).send(message);
+  } else {
+      Movies.push(newMovie);
+      res.status(201).send(newMovie);
+  }
 });
 
+// Deletes a user from our list by ID
+app.delete("/users/:id", (req, res) => {
+    let user = users.find((user) => {
+        return user.id === req.params.id
+    });
+
+    if (user) {
+        users.filter(function(obj) {
+            return obj.id !== req.params.id
+        });
+        res.status(201).send("user " + req.params.id + " was deleted")
+    }
+});
 
 // listen for requests
 app.listen(8080, () =>
-  console.log('Your app is listening on port 8080.')
+    console.log("Your app is listening on port 8080.")
 );
