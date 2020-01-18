@@ -54,6 +54,18 @@ app.post("/movies", (req, res) => {
   }
 });
 
+app.post("/users", (req, res) => {
+    let newUser = req.body;
+  
+    if (!newUser.title) {
+        const message = "Please create an account";
+        res.status(400).send(message);
+    } else {
+        Users.push(newUser);
+        res.status(201).send(newUser);
+    }
+  });
+
 // Deletes a user from our list by ID
 app.delete("/users/:id", (req, res) => {
     let user = users.find((user) => {
@@ -69,6 +81,6 @@ app.delete("/users/:id", (req, res) => {
 });
 
 // listen for requests
-app.listen(8080, () =>
+app.listen(80, () =>
     console.log("Your app is listening on port 8080.")
 );
