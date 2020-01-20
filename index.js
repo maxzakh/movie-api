@@ -24,13 +24,16 @@ let Movies = [
 
 // GET requests
 app.get("/", function (req, res) {
-    res.send("Here are some of my favorite movies!")
+    res.send("Here are some of my favorite movies!");
 });
 app.get("/documentation", function (req, res) {
+    const message = "Here is the documentation page";
+    res.status(400).send(message);
+
     res.sendFile("public/documentation.html", { root: __dirname });
 });
 app.get("/movies", function (req, res) {
-    res.json(Movies)
+    res.json(Movies);
 });
 app.get("/movies/:title", (req, res) => {
   res.json(Movies.find((movie) => {
