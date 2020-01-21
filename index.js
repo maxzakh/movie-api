@@ -40,6 +40,11 @@ app.get("/movies/:title", (req, res) => {
       return movie.title === req.params.title
   }));
 });
+app.get("/movies/:director", (req, res) => {
+    res.json(Movies.find((movie) => {
+        return movie.director === req.params.director
+    }));
+}); 
 // app.get("/users", (req, res) => {
 //   res.send(“Successful GET request returning data on all the users”);
 //  });

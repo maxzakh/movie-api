@@ -5,9 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentation</title>
+    <style>
+        table, td, th {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th {
+            border-collapse: collapse;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to Movie API</h1>
     <p>You will be able to look up information on some of my favorite films</p>
+    <h4>GET</h4>
+    <table>
+        <th>
+            <tr>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>/movies</td>
+                <td>JSON object with the movies, including title and director</td>
+            </tr>
+            <tr>
+                <td>/movies/:title</td>
+                <td>JSON object with the movies' title</td>
+            </tr>
+            <tr>
+                <td>/movies/:director</td>
+                <td>JSON object with the movies' director</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>POST</h4>
+    <table>
+        <th>
+            <tr>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>/movies/:title</td>
+                <td>JSON object with the movies' title</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>PUT</h4>
+    <table>
+        <th>
+            <tr>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>/movies/:director</td>
+                <td>JSON object with the movies' director</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>DELETE</h4>
+    <table>
+        <th>
+            <tr>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>/movies/:director</td>
+                <td>JSON object with the movies' director</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
