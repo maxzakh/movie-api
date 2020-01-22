@@ -6,18 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Documentation</title>
     <style>
-        table, td, th {
+        table, td, th, tbody {
             border-collapse: collapse;
             border: 1px solid black;
         }
         
         table {
-            border-collapse: collapse;
-            width: 100%;
+            width: 50%;
         }
         
         th {
-            border-collapse: collapse;
             text-align: left;
         }
     </style>
@@ -27,16 +25,20 @@
     <p>You will be able to look up information on some of my favorite films</p>
     <h4>GET</h4>
     <table>
-        <th>
+        <thead>
             <tr>
                 <th>URL</th>
                 <th>Description</th>
+                <th>Example Request</th>
+                <th>Example Response</th>
             </tr>
-        </th>
+        </thead>
         <tbody>
             <tr>
                 <td>/movies</td>
                 <td>JSON object with the movies, including title and director</td>
+                <td>/movies</td>
+                <td>[{"title":"Office Space","director":"Mike Judge"},{"title":"Old School","director":"Todd Phillips"},{"title":"Young Frankenstein","director":"Mel Brooks"}]</td>
             </tr>
             <tr>
                 <td>/movies/:title</td>
@@ -50,12 +52,14 @@
     </table>
     <h4>POST</h4>
     <table>
-        <th>
+        <thead>
             <tr>
                 <th>URL</th>
                 <th>Description</th>
+                <th>Example Request</th>
+                <th>Example Response</th>
             </tr>
-        </th>
+        </thead>
         <tbody>
             <tr>
                 <td>/movies/:title</td>
@@ -65,12 +69,14 @@
     </table>
     <h4>PUT</h4>
     <table>
-        <th>
+        <thead>
             <tr>
                 <th>URL</th>
                 <th>Description</th>
+                <th>Example Request</th>
+                <th>Example Response</th>
             </tr>
-        </th>
+        </thead>
         <tbody>
             <tr>
                 <td>/movies/:director</td>
@@ -80,12 +86,14 @@
     </table>
     <h4>DELETE</h4>
     <table>
-        <th>
+        <thead>
             <tr>
                 <th>URL</th>
                 <th>Description</th>
+                <th>Example Request</th>
+                <th>Example Response</th>
             </tr>
-        </th>
+        </thead>
         <tbody>
             <tr>
                 <td>/movies/:director</td>
