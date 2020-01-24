@@ -43,10 +43,14 @@
             <tr>
                 <td>/movies/:title</td>
                 <td>JSON object with the movies' title</td>
+                <td>/movies/Office%20Space</td>
+                <td>{"title": "Office Space", "director": "Mike Judge"}</td>
             </tr>
             <tr>
                 <td>/movies/:director</td>
                 <td>JSON object with the movies' director</td>
+                <td>/movies/Mike%20Judge</td>
+                <td>{"title": "Office Space", "director": "Mike Judge"}</td>
             </tr>
         </tbody>
     </table>
@@ -79,7 +83,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>/movies/:director</td>
+                <td>/movies/director/:director</td>
                 <td>JSON object with the movies' director</td>
             </tr>
         </tbody>

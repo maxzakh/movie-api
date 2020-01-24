@@ -37,7 +37,7 @@ app.get("/movies/:title", (req, res) => {
       return movie.title === req.params.title
   }));
 });
-app.get("/movies/:director", (req, res) => {
+app.get("/movies/director/:director", (req, res) => {
     res.json(Movies.find((movie) => {
         return movie.director === req.params.director
     }));
